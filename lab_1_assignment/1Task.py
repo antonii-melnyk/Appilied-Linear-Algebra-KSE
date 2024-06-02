@@ -41,40 +41,55 @@ def shear(points, shear_factor, axis):
 def custom_transform(points, matrix):
     return np.dot(points, matrix.T)
 
-transformed_object1 = rotate(object1, 45)
+object1_rotated_custom = rotate(object1, 45)
 plt.figure()
-plt.plot(transformed_object1[:, 0], transformed_object1[:, 1], label='Rotated Object 1')
+plt.plot(object1_rotated_custom[:, 0], object1_rotated_custom[:, 1], label='Rotated Object 1')
 plt.legend()
 plt.title('Rotated Object 1')
 plt.show()
 
 custom_matrix = np.array([[2, 0.5], [-0.5, 1]])
-transformed_object1 = custom_transform(object1, custom_matrix)
+object1_custom_transformed_custom = custom_transform(object1, custom_matrix)
 
 plt.figure()
-plt.plot(transformed_object1[:, 0], transformed_object1[:, 1], label='Transformed Object 1 with Custom Matrix')
+plt.plot(object1_custom_transformed_custom[:, 0], object1_custom_transformed_custom[:, 1], label='Transformed Object 1 with Custom Matrix')
 plt.legend()
 plt.title('Custom Transformation')
 plt.show()
 
-scaled_object1 = scale(object1, 0.5)
-scaled_object2 = scale(object2, 0.5)
+object1_scaled_custom = scale(object1, 0.5)
+object2_scaled_custom = scale(object2, 0.5)
 
 plt.figure()
-plt.plot(scaled_object1[:, 0], scaled_object1[:, 1], label='Scaled Object 1')
-plt.plot(scaled_object2[:, 0], scaled_object2[:, 1], label='Scaled Object 2')
+plt.plot(object1_scaled_custom[:, 0], object1_scaled_custom[:, 1], label='Scaled Object 1')
+plt.plot(object2_scaled_custom[:, 0], object2_scaled_custom[:, 1], label='Scaled Object 2')
 plt.legend()
 plt.title('Scaled Objects')
 plt.show()
 
-reflected_object1_x = reflect(object1, 'x')
-reflected_object1_y = reflect(object1, 'y')
+object1_reflected_custom_x = reflect(object1, 'x')
+object1_reflected_custom_y = reflect(object1, 'y')
 
 plt.figure()
-plt.plot(reflected_object1_x[:, 0], reflected_object1_x[:, 1], label='Reflected Object 1 (x-axis)')
-plt.plot(reflected_object1_y[:, 0], reflected_object1_y[:, 1], label='Reflected Object 1 (y-axis)')
+plt.plot(object1_reflected_custom_x[:, 0], object1_reflected_custom_x[:, 1], label='Reflected Object 1 (x-axis)')
+plt.plot(object1_reflected_custom_y[:, 0], object1_reflected_custom_y[:, 1], label='Reflected Object 1 (y-axis)')
 plt.legend()
 plt.title('Reflected Objects')
+plt.show()
+
+object1_sheared_custom_x = shear(object1, 0.5, 'x')
+object1_sheared_custom_y = shear(object1, 0.5, 'y')
+
+plt.figure()
+plt.plot(object1_sheared_custom_x[:, 0], object1_sheared_custom_x[:, 1], label='Sheared Object 1 (x-axis)')
+plt.legend()
+plt.title('Sheared Object 1 (x-axis)')
+plt.show()
+
+plt.figure()
+plt.plot(object1_sheared_custom_y[:, 0], object1_sheared_custom_y[:, 1], label='Sheared Object 1 (y-axis)')
+plt.legend()
+plt.title('Sheared Object 1 (y-axis)')
 plt.show()
 
 object3d = np.array([[0, 0, 0], [1, 0.2, 0.5], [0.4, 1, 1], [0.5, 0.4, 1.5], [0, 0.8, 2], [-0.5, 0.4, 1.5], [-0.4, 1, 1], [-1, 0.2, 0.5], [0, 0, 0]])
